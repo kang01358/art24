@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ART24member</title>
+    <link rel="stylesheet" href="./css/ART24member.css">
+    <script src="../js/jquery-3.6.0.min.js"></script>
+
+
+    </head>
+    <body>
+        <script>
+            function userIdCheck(){
+                document.querySelector("#user_id").addEventListener("focus",function(){
+                alert("test");
+                });
+            } 
+            var userId; //전역변수
+            var userPw;
+            var userPwRe;
+            var userName;
+            
+           
+            window.onload = function(){
+                message - document.querySelector("#message"); //지역변수
+                userId = document.querySelector("#user_id");
+                userPw = document.querySelector("#pw");
+                userPwRe = document.querySelector("#pw_re");
+                userName = document.querySelector("#user_name");
+                userEmail = document.querySelector("#email");
+        
+                document.querySelector("input").addEventListener("focus",function(){
+                    document.querySelector("input").style.backgroundColor = "white";
+                });        
+    
+            };
+          
+            function check(){
+                var idRegEx = /^[a-z][a-zA-Z0-9]{3,12}$/; // 아이디 검사 앞에서 한글자 시작하기떄문에 3으로 적어야함.
+                var pwRegEx = /[a-zA-Z0-9]{8,12}$/; //비번 검사
+                var nameRegEx = /^[ㄱ-힣]+$/;
+                var emailRegEx = /^[a-z0-9]{4,12}@/; //4글자에서 12글자 @<-이메일 체크하는것.
+                
+            
+                //비밀번호 일치검사
+                if(!(idRegEx.test(userId.value))) {
+                    alert ("ID를 입력해주세요.");
+                    return false;
+                } else if(!pwRegEx.test(userPw.value)){ 
+                    alert ("비밀번호는 소문자,대문자,숫자중 8~12글자로 입력 바랍니다.");
+                    return false;
+                }else if(!(userPw.value == userPwRe.value)){
+                    alert ("비밀번호가 일치하지않습니다.");
+                    return false;
+                }else if(!nameRegEx.test(userName.value)){
+                    alert ("이름은 한글 (최소1글자)만 가능합니다.");
+                    return false;
+                }else if(!(emailRegEx.test(userEmail.value))){
+                    alert ("이메일을 재확인 해주세요.");
+                    return false;
+                }
+              
+                return true;
+    
+            }
+          
+        </script>
+</head>
+<body>
+<div class="joinForm">
+    <form method="post"  action="doJoin">      
+        <div class="logo">
+        <a href="./ART24main.html"><img src ="./img1/logo.jpg"></a>
+        </div> 
+        <span id="message" style="color:red;"></span>
+            <form action="join" method="post">
+        <div class="textForm">
+          <input name="loginId" type="text" id="user_id" placeholder="아이디">
+          </input>
+        </div>
+        <div class="textForm">
+          <input name="loginPw" type="password" id="pw" placeholder="비밀번호">
+        </div>
+         <div class="textForm">
+          <input name="loginPwConfirm" type="password" id="pw_re" placeholder="비밀번호 확인">
+        </div>
+        <div class="textForm">
+          <input name="name" type="text" id="user_name" placeholder="이름">
+        </div>
+         <div class="textForm">
+          <input name="email" type="text" id="email" placeholder="이메일">
+        </div>
+        <div class="textForm">
+          <input name="tal" type="text" id="tel"  placeholder="전화번호">
+        </div>
+        <input type="submit" class="btn" value="회원가입" onclick="return check();"/>
+      </form>
+</div> 
+</body>
+</html>

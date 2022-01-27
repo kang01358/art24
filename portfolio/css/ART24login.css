@@ -1,0 +1,10 @@
+*{box-sizing: border-box;}
+body{margin: 200px;background-color: white;}
+.logo{background-color: black;}
+.logo img{margin-left: 180px;}
+.loginFrom{width: 500px;height: 500px; background-color: white;margin-left: auto;margin-right: auto; margin-top: 50px;border-right: 5px;padding: 20px;}
+.login{font-size: 16px; width: 100%; border: 1px solid black; border-radius: 5px; padding: 15px; margin-bottom: 10px;}
+.keeplogin{margin-left: 150px;}
+.logbtn{font-size: 16px;background-color: black; color: white;width: 100%;border-radius: 5px;padding: 10px; border: none;font-weight: bold;height:47px;}
+.links p{color: black;text-align: center;}
+.links a{text-decoration: none;color: black}

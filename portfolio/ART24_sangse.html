@@ -1,0 +1,372 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8" >
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Art24</title>
+    <link rel="stylesheet" type="text/css" href="./css/Art24main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="../resources/js/jquery.bxslider.min.js"></script>
+    <script charset="UTF-8" src="http://t1.daumcdn.net/mapjsapi/js/main/4.4.1/kakao.js"></script>
+
+    <script>
+      //search menu 스크립트
+      $(document).ready(function(){
+        $(".menu2>a").click(function(){
+          $(this).next("div").toggleClass("hide");
+        });
+      });
+    </script>
+     <script>
+      //상세정보
+      $(document).ready(function(){
+	
+	$('ul.tabs li').click(function(){
+		var tab_id = $(this).attr('data-tab');
+
+		$('ul.tabs li').removeClass('current');
+		$('.tab-content').removeClass('current');
+
+		$(this).addClass('current');
+		$("#"+tab_id).addClass('current');
+	})
+
+})
+    </script>
+
+
+
+
+    <meta name="viewport" content="width:100%;height:100%;">
+  
+
+
+    
+
+
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    var nowNum = 0;
+    var bannerObj = $('.slideUl li');
+    var maxLength = bannerObj.length;
+    var timer = 2000; // 자동 롤링되는 타임 설정
+    var autoRun = setInterval(function(){rollingFn('right');},timer);
+    bannerObj.eq(nowNum).fadeIn();
+    $('.nextBtn').bind('click',function(){
+      rollingFn('right');
+    });
+    $('.prevBtn').bind('click',function(){
+      rollingFn('left');
+    });
+    function rollingFn(direction){
+      if(direction=='right'){
+        nowNum = nowNum+1;
+        if(nowNum>maxLength-1){
+          nowNum = 0;
+        }
+      }else{
+        nowNum = nowNum-1;
+        if(nowNum<0){
+          nowNum = maxLength-1;
+        }
+      }
+      bannerObj.hide().eq(nowNum).fadeIn();
+    }
+  });
+  </script>
+
+</head>
+<body style="max-width:2100px;min-width:1000px; margin:auto;height: auto;  z-index: 1;">
+
+  <div>
+  <div class="header" style="max-width:2100px;min-width:2100px;text-align: center;" >
+      <div id="logo">
+          <a href="./ART24main.html"><img src="./img1/logo.jpg" alt="Logo"></a>
+      </div>
+      <div style="width:2100px;min-width: 2100px;">
+      <div id="login">
+          <span style="position:absolute;left:73.7%;"><a href="./ART24login.html">로그인</a></span>
+          <span style="position:absolute;left:76%;"><a href="./ART24member.html">회원가입</a></span>
+      </div>
+    </div>
+      <div class="menu">  
+        <ul class="main">
+          <li>
+            <a href="./ART24_cate1.html">미술/전시</a>
+              <ul class="sub">
+                <li><a href="#">미술전</a></li>
+                <li><a href="#">테마전</a></li>
+                <li><a href="#">사진전</a></li>
+              </ul>
+            </li>
+            <li><a href="./ART24_cate2.html">박람회</a>
+              <ul class="sub">
+                <li><a href="#">리빙/인테리어</a></li>
+                <li><a href="#">반려동물</a></li>
+                <li><a href="#">베이비/웨딩</a></li>
+                <li><a href="#">교육/유학/채용</a></li>
+                <li><a href="#">산업/기계/기술</a></li>
+                <li><a href="#">문화/패션/뷰티</a></li>
+              </ul>
+            </li>
+            <li><a href="./ART24_cate3.html">페스티벌</a>
+              <ul class="sub">
+                <li><a href="#">자연축제</a></li>
+                <li><a href="#">플리마켓</a></li>
+              </ul>
+            </li>
+            <li><a href="./ART24_cate4.html">연극/뮤지컬</a>
+              <ul class="sub">
+                <li><a href="#">연극</a></li>
+                <li><a href="#">뮤지컬</a></li>
+              </ul>
+            </li>
+            <li><a href="#">관람후기</a></li>
+          </ul>
+      </div>           
+      <div id="searcharea"> 
+        <input type="search" placeholder="전시회 검색">
+        <button style="margin:-6px;"><i class="fas fa-search"></i></button>
+    </div>
+    <div id="check">
+      <ul>
+        <li class="menu2">
+          <a href="#"><b>Smart search</b></a>
+          <div class="hide">
+          
+          
+          
+            
+            
+            <div class="smart-bg clear">
+      
+      <form id="frm_top_smart" name="FrmTopSmart" action="../etcs/smart" method="get">
+              <div class="list-wrap">
+                <h6 class="h6">카테고리별</h6>
+                <ul style="padding-left:0";>
+                  <li>
+                    <div class="input-radio">
+                      <input type="radio" id="smart_cate_0" name="scate" value="" checked="checked" /><label for="smart_cate_0">전체</label>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="input-radio">
+                      <input type="radio" id="smart_cate_1" name="scate" value="39" /><label for="smart_cate_1">미술/전시</label>
+                    </div>
+                  </li>						<li>
+                    <div class="input-radio">
+                      <input type="radio" id="smart_cate_2" name="scate" value="33" /><label for="smart_cate_2">박람회</label>
+                    </div>
+                  </li>						<li>
+                    <div class="input-radio">
+                      <input type="radio" id="smart_cate_4" name="scate" value="70" /><label for="smart_cate_4">페스티벌</label>
+                    </div>
+                  </li>						<li>
+                    <div class="input-radio">
+                      <input type="radio" id="smart_cate_5" name="scate" value="60" /><label for="smart_cate_5">연극/뮤지컬/영화</label>
+                    </div>
+                  </li>					
+                </ul>
+              </div>
+              <div class="list-wrap">
+                <h6 class="h6">지역별</h6>
+                <ul style="padding-left:0";>
+                  <li>
+                    <div class="input-radio">
+                      <input type="radio" id="smart_zone_0" name="szone" value="" checked="checked" /><label for="smart_zone_0">전체</label>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="input-radio">
+                      <input type="radio" id="smart_zone_1" name="szone" value="1" /><label for="smart_zone_1">서울</label>
+                    </div>
+                  </li>						<li>
+                    <div class="input-radio">
+                      <input type="radio" id="smart_zone_2" name="szone" value="2" /><label for="smart_zone_2">경기/인천</label>
+                    </div>
+                  </li>						<li>
+                    <div class="input-radio">
+                      <input type="radio" id="smart_zone_3" name="szone" value="4" /><label for="smart_zone_3">대전/충청/강원</label>
+                    </div>
+                  </li>						<li>
+                    <div class="input-radio">
+                      <input type="radio" id="smart_zone_4" name="szone" value="8" /><label for="smart_zone_4">부산/대구/경상</label>
+                    </div>
+                  </li>						<li>
+                    <div class="input-radio">
+                      <input type="radio" id="smart_zone_5" name="szone" value="16" /><label for="smart_zone_5">광주/전라/제주</label>
+                    </div>
+                  </li>					
+                </ul>
+              </div>
+              <div class="list-wrap">
+                <h6 class="h6">종류별</h6>
+                <ul style="padding-left:0";>
+                  <li>
+                    <div class="input-radio">
+                      <input type="radio" id="smart_kind_0" name="skind" value="" checked="checked" /><label for="smart_kind_0">전체</label>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="input-radio">
+                      <input type="radio" id="smart_kind_1" name="skind" value="1" /><label for="smart_kind_1">사전등록</label>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="input-radio">
+                      <input type="radio" id="smart_kind_2" name="skind" value="2" /><label for="smart_kind_2">행사안내</label>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+              <div class="list-wrap">
+                <h6 class="h6">기간별</h6>
+                <ul style="padding-left:0";>
+                  <li>
+                    <div class="input-radio">
+                      <input type="radio" id="smart_period_0" name="speriod" value="" checked="checked" /><label for="smart_period_0">전체</label>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="input-radio">
+                      <input type="radio" id="smart_period_1" name="speriod" value="w1" /><label for="smart_period_1">~ 1주일</label>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="input-radio">
+                      <input type="radio" id="smart_period_2" name="speriod" value="m1" /><label for="smart_period_2">~ 1달</label>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="input-radio">
+                      <input type="radio" id="smart_period_3" name="speriod" value="m3" /><label for="smart_period_3">~ 3달</label>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+      
+              <div class="clear"></div>
+      
+              <div class="btn-group text-center">
+                <a href="#"  class="white-red">조회</a>
+              </div>
+      
+              
+        </div>
+      
+
+        </li>
+      </ul>
+      
+    </div> 
+  </div>
+</div>
+<br><br>
+<div class="container">
+	<div class="wrap">
+		<div class="detail-wrap">
+		
+			<div class="detail-info">
+				<div class="info-inner">
+          <table style="text-align: center;margin:auto;width:900px;">
+            <tr>
+              <td style="border-right:none;">
+                <div class="thum">
+                  <img src="./img1/S_01.JPG " style="width:210px;height:300px;">
+                </div>		
+              </td>
+              <td style="border-left:none;">
+                <ul class="li_btn">
+                  <li style="float:right;margin:0 60px 0 0;"><a href="#"><img	src="./img1/wish_icon_off.png" alt="관심 리스트 추가하기" /></a></li>
+                  
+                </ul>
+               
+               <div style="text-align:left;position:relative;top:-50px;">
+                <p style="font-size:x-large;font-weight: bold;">움직임을 만드는 움직임</p>
+                
+                <ul class="info-list" style="padding-left: 0px;">
+                  <li>
+                    <span class="title">기간 | 2021.04.23~2021.09.26</span>
+                    
+                  </li>
+                  <li>
+                    <span class="title">시간 | 10:00~18:00</span>
+                  
+                  </li>
+                  <li>
+                    <span class="title">장소 | 국립현대미술관 서울</span>
+                    
+                  </li>
+                </ul>
+              </div>
+              </td>
+             
+             
+            </tr>
+          
+          </table>
+					
+					</div>       
+					
+          </div>
+			</div>
+<br><br><br>
+
+
+
+    <div class="tab_box">
+      <hr>
+      <ul class="tabs">
+        <li class="tab-link current" data-tab="tab-1">상세정보</li>
+        <li class="tab-link" data-tab="tab-2">장소/전시장도면</li>
+        <li class="tab-link" data-tab="tab-3">참가기업</li>
+        <li class="tab-link" data-tab="tab-4">문의</li>
+        <li class="tab-link" data-tab="tab-5">기대평</li>
+      </ul>
+      <div id="tab-1" style="text-align: center;" class="tab-content current">
+      <img src="./img1/S_01.JPG" style="width:650px;height:920px;" alt=""><br><br>
+    
+    <div style="text-align: left;">
+      작가 : 로테 라이니거, 오스카 피싱거, 렌 라이, 카렐 제만, 노먼 매클래런​ <br><br>
+      지금은 디즈니와 지브리 스튜디오와 같은 상업 애니메이션에 익숙해져 있지만, 훨씬 이전부터 종이와 펜, 인형, 유리공예 등 여러 매체를 활용한 실험적 애니메이션의 역사는 시작되었다. 디즈니의 백설공주보다 먼저 입체감 있는 애니메이션 표현을 시작한 실루엣 애니메이션의 선구자 로테 라이니거를 비롯하여, 상상력 넘치는 동화 속 세계를 드로잉과 실사 등 여러 기법을 혼합하여 오늘날의 컴퓨터 그래픽을 능가하는 특수 효과를 구현해낸 카렐 제만 등이 대표적이다. <움직임을 만드는 움직임> 전은 초기 실험 애니메이션 제작과정에 대한 원리를 소개하여 영상의 '소비자'가 아닌 '창작자'의 시각에서 애니메이션을 더 깊이 이해하고 즐길 수 있는 기회를 제공한다.
+    </div>
+    </div>
+      <div id="tab-2" class="tab-content">
+        주소 | 서울특별시 종로구 삼청로 30<br><br>
+        
+        <img src="./img1/map.JPG" alt="" style="margin-left: 200px;">
+     
+      </div>
+      <div id="tab-3" class="tab-content">
+     참가 기업의 소개가 없습니다.
+      </div>
+      <div id="tab-4" class="tab-content">
+      
+      </div>
+      <div id="tab-5" class="tab-content">
+      
+      </div>
+
+    </div>
+  </div>
+</div>
+
+        <br><br><br><br>
+        <hr>
+        <br>
+    <div class="footer">
+      <img src="./img1/footer.jpg" alt="">
+      <p>아트24 | 회사소개 | 통신판매업신고번호 : 제2017-서울송파-1676호 <br>
+        05836 서울특별시 송파구 법원로9길 26 H비즈니스파크 D동 1212호(문정동) | 고객센터:1599-0002</p>
+  
+    </div>
+
+</div>
+   
+
+</body>
+</html>

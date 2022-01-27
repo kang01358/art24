@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Art24</title>
+    <link rel="stylesheet" type="text/css" href="./css/Art24main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    
+
+    <script>
+      //search menu 스크립트
+      $(document).ready(function(){
+        $(".menu2>a").click(function(){
+          $(this).next("div").toggleClass("hide");
+        });
+      });
+    </script>
+    
+    <meta name="viewport" content="width:100%;height:100%;">
+    <script>
+        var slideIndex = 1;
+        showSlides(slideIndex);
+        function plusSlides(n) {
+          showSlides(slideIndex += n);
+        }
+        function currentSlide(n) {   
+          showSlides(slideIndex = n);
+        }
+
+        function showSlides(n) {
+          var i;
+          var slides = document.getElementsByClassName("mySlides");
+          var dots = document.getElementsByClassName("dot");
+          if (n > slides.length) {slideIndex = 1}    
+          if (n < 1) {slideIndex = slides.length}
+          for (i = 0; i < slides.length; i++) {
+              slides[i].style.display = "none";  
+          }
+          for (i = 0; i < dots.length; i++) {
+              dots[i].className = dots[i].className.replace(" active", "");
+          }
+          slides[slideIndex-1].style.display = "block";  
+          dots[slideIndex-1].className += " active";
+          setTimeout(showSlides,2000);
+        }
+    </script>
+
+</head>
+<body style="max-width:2100px;min-width:1000px; margin:auto;height: auto;  z-index: 1;">
+
+  <div>
+  <div class="header" style="max-width:2100px;min-width:2100px;text-align: center;" >
+      <div id="logo">
+          <a href="./ART24main.html"><img src="./img1/logo.jpg" alt="Logo"></a>
+      </div>
+      <div style="width:2100px;min-width: 2100px;">
+      <div id="login" >
+          <span style="position:absolute;left:73.7%;"><a href="./ART24login.html">로그인</a></span>
+          <span style="position:absolute;left:76%;"><a href="./ART24member.html">회원가입</a></span>
+      </div>
+    </div>
+      <div class="menu">  
+        <ul class="main">
+          <li>
+            <a href="./ART24_cate1.html">미술/전시</a>
+              <ul class="sub">
+                <li><a href="#">미술전</a></li>
+                <li><a href="#">테마전</a></li>
+                <li><a href="#">사진전</a></li>
+              </ul>
+            </li>
+            <li><a href="./ART24_cate2.html">박람회</a>
+              <ul class="sub">
+                <li><a href="#">리빙/인테리어</a></li>
+                <li><a href="#">반려동물</a></li>
+                <li><a href="#">베이비/웨딩</a></li>
+                <li><a href="#">교육/유학/채용</a></li>
+                <li><a href="#">산업/기계/기술</a></li>
+                <li><a href="#">문화/패션/뷰티</a></li>
+              </ul>
+            </li>
+            <li><a href="./ART24_cate3.html">페스티벌</a>
+              <ul class="sub">
+                <li><a href="#">자연축제</a></li>
+                <li><a href="#">플리마켓</a></li>
+              </ul>
+            </li>
+            <li><a href="./ART24_cate4.html">연극/뮤지컬</a>
+              <ul class="sub">
+                <li><a href="#">연극</a></li>
+                <li><a href="#">뮤지컬</a></li>
+              </ul>
+            </li>
+            <li><a href="#">관람후기</a></li>
+          </ul>
+      </div>           
+      <div id="searcharea"> 
+        <input type="search" placeholder="전시회 검색">
+        <button style="margin:-6px;"><i class="fas fa-search"></i></button>
+    </div>
+    <div id="check">
+      <ul>
+        <li class="menu2">
+          <a href="#"><b>Smart search</b></a>
+          <div class="hide">
+          
+          
+          
+            
+            
+            <div class="smart-bg clear">
+      
+      <form id="frm_top_smart" name="FrmTopSmart" action="../etcs/smart" method="get">
+              <div class="list-wrap">
+                <h6 class="h6">카테고리별</h6>
+                <ul style="padding-left:0";>
+                  <li>
+                    <div class="input-radio">
+                      <input type="radio" id="smart_cate_0" name="scate" value="" checked="checked" /><label for="smart_cate_0">전체</label>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="input-radio">
+                      <input type="radio" id="smart_cate_1" name="scate" value="39" /><label for="smart_cate_1">미술/전시</label>
+                    </div>
+                  </li>						<li>
+                    <div class="input-radio">
+                      <input type="radio" id="smart_cate_2" name="scate" value="33" /><label for="smart_cate_2">박람회</label>
+                    </div>
+                  </li>						<li>
+                    <div class="input-radio">
+                      <input type="radio" id="smart_cate_4" name="scate" value="70" /><label for="smart_cate_4">페스티벌</label>
+                    </div>
+                  </li>						<li>
+                    <div class="input-radio">
+                      <input type="radio" id="smart_cate_5" name="scate" value="60" /><label for="smart_cate_5">연극/뮤지컬/영화</label>
+                    </div>
+                  </li>					
+                </ul>
+              </div>
+              <div class="list-wrap">
+                <h6 class="h6">지역별</h6>
+                <ul style="padding-left:0";>
+                  <li>
+                    <div class="input-radio">
+                      <input type="radio" id="smart_zone_0" name="szone" value="" checked="checked" /><label for="smart_zone_0">전체</label>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="input-radio">
+                      <input type="radio" id="smart_zone_1" name="szone" value="1" /><label for="smart_zone_1">서울</label>
+                    </div>
+                  </li>						<li>
+                    <div class="input-radio">
+                      <input type="radio" id="smart_zone_2" name="szone" value="2" /><label for="smart_zone_2">경기/인천</label>
+                    </div>
+                  </li>						<li>
+                    <div class="input-radio">
+                      <input type="radio" id="smart_zone_3" name="szone" value="4" /><label for="smart_zone_3">대전/충청/강원</label>
+                    </div>
+                  </li>						<li>
+                    <div class="input-radio">
+                      <input type="radio" id="smart_zone_4" name="szone" value="8" /><label for="smart_zone_4">부산/대구/경상</label>
+                    </div>
+                  </li>						<li>
+                    <div class="input-radio">
+                      <input type="radio" id="smart_zone_5" name="szone" value="16" /><label for="smart_zone_5">광주/전라/제주</label>
+                    </div>
+                  </li>					
+                </ul>
+              </div>
+              <div class="list-wrap">
+                <h6 class="h6">종류별</h6>
+                <ul style="padding-left:0";>
+                  <li>
+                    <div class="input-radio">
+                      <input type="radio" id="smart_kind_0" name="skind" value="" checked="checked" /><label for="smart_kind_0">전체</label>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="input-radio">
+                      <input type="radio" id="smart_kind_1" name="skind" value="1" /><label for="smart_kind_1">사전등록</label>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="input-radio">
+                      <input type="radio" id="smart_kind_2" name="skind" value="2" /><label for="smart_kind_2">행사안내</label>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+              <div class="list-wrap">
+                <h6 class="h6">기간별</h6>
+                <ul style="padding-left:0";>
+                  <li>
+                    <div class="input-radio">
+                      <input type="radio" id="smart_period_0" name="speriod" value="" checked="checked" /><label for="smart_period_0">전체</label>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="input-radio">
+                      <input type="radio" id="smart_period_1" name="speriod" value="w1" /><label for="smart_period_1">~ 1주일</label>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="input-radio">
+                      <input type="radio" id="smart_period_2" name="speriod" value="m1" /><label for="smart_period_2">~ 1달</label>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="input-radio">
+                      <input type="radio" id="smart_period_3" name="speriod" value="m3" /><label for="smart_period_3">~ 3달</label>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+      
+              <div class="clear"></div>
+      
+              <div class="btn-group text-center">
+                <a href="#"  class="white-red">조회</a>
+              </div>
+      
+              
+        </div>
+      
+
+        </li>
+      </ul>
+      
+    </div> 
+  </div>
+</div>
+
+<div class="bigcontents2">
+    <div class="contents2">
+      <div style="width:75%;min-width: 900px;float:right;">
+      <h3 class="subheading">페스티벌 〉</h3>
+      </div>
+      <table style="margin:auto;width:800px;">
+          <tr>
+              <td style="border-bottom:none;"><img src="./img3/F_01.JPG" ></td>
+              <td style="border-bottom:none;"><img src="./img3/F_02.JPG" ></td>
+              <td style="border-bottom:none;"><img src="./img3/F_03.JPG" ></td>
+              <td style="border-bottom:none;"><img src="./img3/F_04.JPG" ></td>
+          </tr>
+          <tr>
+            <td style="border-top:none;"><b><p style="font-size:15px;">2021 하이브리드 한강 나이트 워크 42K</p></b><p style="font-size: 12px;color:gray;">2021.10.01~2021.10.17<br>한강유람선 선착장</p></td>
+            <td style="border-top:none;"><b><p style="font-size:15px;">무안황토갯벌축제</p></b><p style="font-size: 12px;color:gray;">2022.06.23 ~ 2022.06.27<br>전남 무안군</p></td>
+            <td style="border-top:none;"><b><p style="font-size:15px;">영동포도축제</p></b><p style="font-size: 12px;color:gray;">2021.08.17 ~ 2021.09.15<br>충북 영동군</p></td>
+            <td style="border-top:none;"><b><p style="font-size:15px;">비엔날레 문화콘서트</p></b><p style="font-size: 12px;color:gray;">2021.07.03 ~ 2021.08.28<br>광주 북구</p></td>
+        </tr>                     
+      </table>
+        
+        
+        <br><br><br><br>
+        <hr>
+        <br>
+    <div class="footer">
+      <img src="./img1/footer.jpg" alt="">
+      <p>아트24 | 회사소개 | 통신판매업신고번호 : 제2017-서울송파-1676호 <br>
+        05836 서울특별시 송파구 법원로9길 26 H비즈니스파크 D동 1212호(문정동) | 고객센터:1599-0002</p>
+  
+    </div>
+</div>
+</div>
+   
+
+</body>
+</html>
